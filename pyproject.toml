@@ -4,13 +4,28 @@ version = "0.1.0"
 description = ""
 authors = ["NIK <nikita1z@mail.ru>"]
 readme = "README.md"
-packages = [{include = "stepic_project_diplom"}]
+packages = [{ include = "stepic_project_diplom" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^4.2.3"
+django-environ = "^0.10.0"
+psycopg-binary = "^3.1.9"
+of = "^1.0.1"
+ruamel-yaml = "^0.17.32"
+build = "^0.10.0"
+pyproject-flake8 = "^6.0.0.post1"
 
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tools.isort]
+py_version = 3.11 # версия питона
+profile = 'django'
+line_length = 120
+multi_line_output = 2 # настройка межстроковых отступов
+known_first_party = ["todolist", "core"] # какие приложения являються нами написанными
