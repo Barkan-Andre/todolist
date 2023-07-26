@@ -22,6 +22,6 @@ class UserAdmin(BaseUserAdmin):
         ),
         (
             'Impotent dates',
-            {'fields': ('last_login', 'date_joined')}
+            {'fields': ('last_login', 'date_joined')},
         )
     )
