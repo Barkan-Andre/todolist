@@ -17,7 +17,7 @@ env = environ.Env(
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-environ.Env.read_env(BASE_DIR.joinpath('.env'))
+environ.Env.read_env(BASE_DIR.joinpath('../.env'))
 
 DEBUG = env('DEBUG')
 
@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-
 ROOT_URLCONF = 'todolist.urls'
 
 TEMPLATES = [
@@ -74,11 +73,14 @@ AUTH_USER_MODEL = 'core.User'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'todolist.db',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': env('POSTGRES_DB'),
+        'USER': env('POSTGRES_USER'),
+        'PASSWORD': env('POSTGRES_PASSWORD'),
+        'HOST': env('POSTGRES_HOST', default='127.0.0.1'),
+        'PORT': '5432',
     }
-}
-# Password validation
+}# Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
