@@ -1,9 +1,9 @@
 FROM python:3.10-slim
 
-WORKDIR /opt/todolist
-ENV PIP_DISABLE_PIP_VERSION_CHEK=on\
-    PIP_ON_CACHE_DIR=off\
-    PYTHON_PATH=/opt/todolit
+WORKDIR /opt/todolist/
+ENV PIP_DISABLE_PIP_VERSION_CHEK=on \
+    PIP_ON_CACHE_DIR=off \
+    PYTHON_PATH=/opt/todolist/
 
 RUN pip install "poetry==1.5.1"
 RUN groupadd --system service && useradd --system -g service api
